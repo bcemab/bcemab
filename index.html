@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PressAcademia — Open Access Academic Publishing</title>
-  <meta name="description" content="PressAcademia publishes high quality, blind peer-reviewed and open access journals, proceedings, books and case studies, and organizes international conferences." />
+  <meta name="description" content="PressAcademia publishes high quality, blind peer-reviewed and open access journals, proceedings, books and case studies." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
@@ -12,817 +12,171 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:      #0f1f3d;
-      --navy-mid:  #1a3260;
-      --gold:      #c9972b;
-      --gold-light:#e8b84b;
-      --cream:     #faf8f4;
-      --white:     #ffffff;
-      --gray-100:  #f4f5f7;
-      --gray-200:  #e8eaed;
-      --gray-400:  #9aa3b0;
-      --gray-600:  #5c6470;
-      --gray-800:  #2d3340;
-      --radius-sm: 6px;
-      --radius-md: 12px;
-      --radius-lg: 20px;
-      --shadow-sm: 0 1px 4px rgba(15,31,61,.06);
-      --shadow-md: 0 4px 20px rgba(15,31,61,.10);
-      --shadow-lg: 0 12px 40px rgba(15,31,61,.14);
-      --transition: .22s cubic-bezier(.4,0,.2,1);
+      --black:        #111111;
+      --near-black:   #1c1c1c;
+      --orange:       #c35a1e;
+      --orange-h:     #a84a16;
+      --orange-pale:  #fdf0e8;
+      --white:        #ffffff;
+      --gray-50:      #f7f7f7;
+      --gray-100:     #f0f0f0;
+      --gray-200:     #e0e0e0;
+      --gray-400:     #aaaaaa;
+      --gray-600:     #666666;
+      --gray-800:     #333333;
+      --r-sm: 4px;
+      --r-md: 10px;
+      --sh-md: 0 4px 16px rgba(0,0,0,.10);
+      --sh-lg: 0 10px 36px rgba(0,0,0,.13);
+      --t: .2s ease;
     }
 
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      color: var(--gray-800);
-      background: var(--white);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
+    body { font-family: 'Inter', system-ui, sans-serif; color: var(--gray-800); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
 
-    /* ── HEADER ───────────────────────────────────── */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--gray-200);
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 68px;
-      display: flex;
-      align-items: center;
-      gap: 40px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-    }
-
-    .logo img {
-      height: 40px;
-      width: auto;
-      display: block;
-    }
-
-    .logo-inverted img {
-      filter: brightness(0) invert(1);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      flex: 1;
-    }
-
-    nav a {
-      padding: 6px 12px;
-      border-radius: var(--radius-sm);
-      font-size: .875rem;
-      font-weight: 500;
-      color: var(--gray-600);
-      transition: color var(--transition), background var(--transition);
-      white-space: nowrap;
-    }
-
-    nav a:hover {
-      color: var(--navy);
-      background: var(--gray-100);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-left: auto;
-      flex-shrink: 0;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 9px 18px;
-      border-radius: var(--radius-sm);
-      font-size: .875rem;
-      font-weight: 600;
-      transition: all var(--transition);
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--navy);
-      color: var(--white);
-    }
-
-    .btn-primary:hover {
-      background: var(--navy-mid);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--navy);
-      border: 1.5px solid var(--gray-200);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--navy);
-      background: var(--navy);
-      color: var(--white);
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: var(--white);
-    }
-
-    .btn-gold:hover {
-      background: var(--gold-light);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(201,151,43,.35);
-    }
-
-    /* ── ANNOUNCEMENT BANNER ─────────────────────── */
-    .announcement-bar {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-      color: var(--white);
-      padding: 14px 24px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .announcement-bar .badge {
-      background: var(--gold);
-      color: var(--white);
-      padding: 3px 10px;
-      border-radius: 100px;
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .5px;
-      text-transform: uppercase;
-      flex-shrink: 0;
-    }
-
-    .announcement-bar p {
-      font-size: .9rem;
-      font-weight: 500;
-    }
-
-    .announcement-bar a {
-      font-size: .85rem;
-      font-weight: 600;
-      color: var(--gold-light);
-      border-bottom: 1px solid transparent;
-      transition: border-color var(--transition);
-      flex-shrink: 0;
-    }
-
-    .announcement-bar a:hover { border-color: var(--gold-light); }
-
-    /* ── HERO ─────────────────────────────────────── */
-    .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, #162b52 50%, #1e3a6e 100%);
-      color: var(--white);
-      padding: 100px 24px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-
-    .hero-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-      position: relative;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(201,151,43,.15);
-      border: 1px solid rgba(201,151,43,.3);
-      color: var(--gold-light);
-      padding: 6px 14px;
-      border-radius: 100px;
-      font-size: .78rem;
-      font-weight: 600;
-      letter-spacing: .5px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-
-    .hero-eyebrow::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      background: var(--gold-light);
-      border-radius: 50%;
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 20px;
-      letter-spacing: -.5px;
-    }
-
-    .hero h1 em {
-      font-style: normal;
-      color: var(--gold-light);
-    }
-
-    .hero p {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,.75);
-      max-width: 480px;
-      margin-bottom: 36px;
-      line-height: 1.7;
-    }
-
-    .hero-ctas {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 32px;
-      margin-top: 56px;
-      padding-top: 36px;
-      border-top: 1px solid rgba(255,255,255,.12);
-    }
-
-    .stat {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .stat-value {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: -.5px;
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: .78rem;
-      color: rgba(255,255,255,.5);
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-    }
-
-    .hero-visual {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .journal-card {
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: var(--radius-md);
-      padding: 22px 20px;
-      transition: background var(--transition), transform var(--transition);
-      cursor: default;
-    }
-
-    .journal-card:hover {
-      background: rgba(255,255,255,.11);
-      transform: translateY(-2px);
-    }
-
-    .journal-card:nth-child(2) { margin-top: 24px; }
-    .journal-card:nth-child(4) { margin-top: -24px; }
-
-    .journal-card .abbr {
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 10px;
-    }
-
-    .journal-card .name {
-      font-size: .85rem;
-      font-weight: 500;
-      color: rgba(255,255,255,.85);
-      line-height: 1.4;
-      margin-bottom: 14px;
-    }
-
-    .journal-card .open-access {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: .72rem;
-      color: rgba(255,255,255,.45);
-      font-weight: 500;
-    }
-
-    .journal-card .open-access::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      background: #4ade80;
-      border-radius: 50%;
-    }
-
-    /* ── SECTION COMMON ──────────────────────────── */
-    .section {
-      padding: 80px 24px;
-    }
-
-    .section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-
-    .section-label {
-      display: inline-block;
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      font-weight: 700;
-      color: var(--navy);
-      letter-spacing: -.3px;
-      line-height: 1.2;
-      margin-bottom: 14px;
-    }
-
-    .section-subtitle {
-      font-size: 1rem;
-      color: var(--gray-600);
-      max-width: 560px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    /* ── SERVICES ─────────────────────────────────── */
-    .services {
-      background: var(--cream);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-
-    .service-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-md);
-      padding: 32px 28px;
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-    }
-
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--navy);
-    }
-
-    .service-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .service-icon.journals  { background: #e8f0fe; }
-    .service-icon.conf      { background: #fce8d5; }
-    .service-icon.ebook     { background: #e6f4ea; }
-    .service-icon.case      { background: #fce8f3; }
-
-    .service-card h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
-
-    .service-card p {
-      font-size: .875rem;
-      color: var(--gray-600);
-      line-height: 1.65;
-      margin-bottom: 20px;
-    }
-
-    .service-link {
-      font-size: .82rem;
-      font-weight: 600;
-      color: var(--navy);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      transition: gap var(--transition), color var(--transition);
-    }
-
-    .service-link:hover {
-      color: var(--gold);
-      gap: 8px;
-    }
-
-    /* ── JOURNALS ─────────────────────────────────── */
-    .journals-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .journal-row {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-md);
-      padding: 28px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
-    }
-
-    .journal-row:hover {
-      box-shadow: var(--shadow-md);
-      border-color: rgba(15,31,61,.2);
-      transform: translateY(-2px);
-    }
-
-    .journal-abbr-badge {
-      width: 56px;
-      height: 56px;
-      background: var(--navy);
-      color: var(--white);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .68rem;
-      font-weight: 800;
-      letter-spacing: .5px;
-      text-align: center;
-      flex-shrink: 0;
-      line-height: 1.2;
-    }
-
-    .journal-info { flex: 1; }
-
-    .journal-info h4 {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 6px;
-      line-height: 1.3;
-    }
-
-    .journal-info p {
-      font-size: .82rem;
-      color: var(--gray-600);
-      margin-bottom: 14px;
-      line-height: 1.5;
-    }
-
-    .journal-tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 100px;
-      font-size: .7rem;
-      font-weight: 600;
-      letter-spacing: .3px;
-    }
-
-    .tag-blue  { background: #e8f0fe; color: #1a56cc; }
-    .tag-green { background: #e6f4ea; color: #137333; }
-    .tag-gold  { background: #fef3cd; color: #8a6100; }
-
-    /* ── CONFERENCE STRIP ────────────────────────── */
-    .conference-strip {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-      padding: 64px 24px;
-      color: var(--white);
-    }
-
-    .conference-strip .section-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .conf-info { max-width: 560px; }
-
-    .conf-info .event-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(201,151,43,.2);
-      border: 1px solid rgba(201,151,43,.35);
-      color: var(--gold-light);
-      padding: 5px 14px;
-      border-radius: 100px;
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .5px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .conf-info h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 700;
-      margin-bottom: 12px;
-      line-height: 1.2;
-    }
-
-    .conf-info p {
-      font-size: .95rem;
-      color: rgba(255,255,255,.7);
-      line-height: 1.7;
-    }
-
-    /* ── MISSION ──────────────────────────────────── */
-    .mission {
-      background: var(--gray-100);
-    }
-
-    .mission-inner {
-      max-width: 820px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .mission blockquote {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1.55;
-      position: relative;
-      padding: 0 20px;
-    }
-
-    .mission blockquote::before {
-      content: '"';
-      font-size: 6rem;
-      color: var(--gold);
-      opacity: .25;
-      position: absolute;
-      top: -20px;
-      left: -10px;
-      font-family: Georgia, serif;
-      line-height: 1;
-    }
-
-    .mission-attributes {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-top: 40px;
-    }
-
-    .mission-attr {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .85rem;
-      font-weight: 600;
-      color: var(--gray-600);
-    }
-
-    .mission-attr svg { color: var(--navy); }
-
-    /* ── FOOTER ───────────────────────────────────── */
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,.7);
-      padding: 64px 24px 0;
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,.1);
-    }
-
-
-    .footer-brand p {
-      font-size: .875rem;
-      line-height: 1.7;
-      margin-top: 14px;
-      margin-bottom: 20px;
-      color: rgba(255,255,255,.55);
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 10px;
-    }
-
-    .social-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(255,255,255,.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,.6);
-      transition: background var(--transition), color var(--transition), border-color var(--transition);
-    }
-
-    .social-btn:hover {
-      background: rgba(255,255,255,.1);
-      color: var(--white);
-      border-color: rgba(255,255,255,.3);
-    }
-
-    .footer-col h5 {
-      font-size: .8rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.4);
-      margin-bottom: 18px;
-    }
-
-    .footer-col ul { list-style: none; }
-
-    .footer-col li + li { margin-top: 10px; }
-
-    .footer-col a {
-      font-size: .875rem;
-      color: rgba(255,255,255,.65);
-      transition: color var(--transition);
-    }
-
-    .footer-col a:hover { color: var(--white); }
-
-    .footer-bottom {
-      padding: 20px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .footer-bottom p {
-      font-size: .8rem;
-      color: rgba(255,255,255,.35);
-    }
-
-    .license-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .78rem;
-      color: rgba(255,255,255,.4);
-    }
-
-    .license-badge img {
-      height: 20px;
-      opacity: .7;
-    }
-
-    /* ── RESPONSIVE ───────────────────────────────── */
+    /* ANNOUNCEMENT */
+    .ann { background: var(--orange); color: var(--white); padding: 11px 24px; display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .ann .badge { background: rgba(0,0,0,.18); padding: 2px 10px; border-radius: 100px; font-size: .7rem; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; }
+    .ann p { font-size: .88rem; font-weight: 500; }
+    .ann a { font-size: .83rem; font-weight: 700; color: var(--white); border-bottom: 1px solid rgba(255,255,255,.5); transition: border-color var(--t); }
+    .ann a:hover { border-color: white; }
+
+    /* HEADER */
+    header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gray-200); }
+    .hdr { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 66px; display: flex; align-items: center; gap: 36px; }
+    .logo { display: flex; align-items: center; flex-shrink: 0; }
+    .logo img { height: 36px; width: auto; display: block; }
+    .logo-inv img { filter: brightness(0) invert(1); }
+    nav { display: flex; align-items: center; gap: 2px; flex: 1; }
+    nav a { padding: 6px 12px; border-radius: var(--r-sm); font-size: .855rem; font-weight: 500; color: var(--gray-600); transition: color var(--t), background var(--t); white-space: nowrap; }
+    nav a:hover { color: var(--black); background: var(--gray-100); }
+    .hdr-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; border-radius: var(--r-sm); font-size: .855rem; font-weight: 600; transition: all var(--t); cursor: pointer; border: none; white-space: nowrap; }
+    .btn-org { background: var(--orange); color: var(--white); }
+    .btn-org:hover { background: var(--orange-h); box-shadow: 0 4px 16px rgba(195,90,30,.3); }
+    .btn-ol { background: transparent; color: var(--black); border: 1.5px solid var(--gray-200); }
+    .btn-ol:hover { border-color: var(--black); }
+    .btn-ol-w { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,.35); }
+    .btn-ol-w:hover { border-color: rgba(255,255,255,.8); background: rgba(255,255,255,.07); }
+
+    /* HERO */
+    .hero { background: var(--black); color: var(--white); padding: 88px 24px 72px; position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: linear-gradient(135deg, transparent 0%, rgba(195,90,30,.06) 100%); pointer-events: none; }
+    .hero-in { max-width: 1200px; margin: 0 auto; position: relative; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--orange); font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; }
+    .eyebrow::before { content: ''; width: 20px; height: 2px; background: var(--orange); border-radius: 2px; }
+    .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.4rem, 4.5vw, 3.6rem); font-weight: 700; line-height: 1.15; letter-spacing: -.5px; margin-bottom: 20px; max-width: 700px; }
+    .hero h1 em { font-style: normal; color: var(--orange); }
+    .hero p { font-size: 1.05rem; color: rgba(255,255,255,.65); max-width: 520px; margin-bottom: 36px; line-height: 1.7; }
+    .hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    /* JOURNALS STRIP */
+    .jfeat { background: var(--gray-50); border-bottom: 1px solid var(--gray-200); }
+    .jfeat-in { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .jlabel { display: flex; align-items: center; gap: 12px; padding: 22px 0 0; font-size: .7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-400); }
+    .jlabel::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
+    .jstrip { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .jcard { padding: 28px 26px; border-right: 1px solid var(--gray-200); transition: background var(--t); }
+    .jcard:last-child { border-right: none; }
+    .jcard:hover { background: var(--white); }
+    .jcard-abbr { font-size: .68rem; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--orange); margin-bottom: 9px; }
+    .jcard-name { font-size: .9rem; font-weight: 600; color: var(--black); line-height: 1.35; margin-bottom: 10px; }
+    .jcard-desc { font-size: .78rem; color: var(--gray-600); line-height: 1.55; margin-bottom: 16px; }
+    .jcard-link { font-size: .74rem; font-weight: 700; color: var(--orange); letter-spacing: .3px; display: inline-flex; align-items: center; gap: 4px; transition: gap var(--t); }
+    .jcard-link:hover { gap: 8px; }
+
+    /* SECTION */
+    .sec { padding: 80px 24px; }
+    .sec-in { max-width: 1200px; margin: 0 auto; }
+    .sec-hdr { margin-bottom: 48px; }
+    .sec-lbl { display: inline-flex; align-items: center; gap: 8px; font-size: .72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
+    .sec-lbl::before { content: ''; width: 16px; height: 2px; background: var(--orange); border-radius: 2px; }
+    .sec-ttl { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.7rem, 2.8vw, 2.3rem); font-weight: 700; color: var(--black); letter-spacing: -.3px; line-height: 1.2; margin-bottom: 12px; }
+    .sec-sub { font-size: .95rem; color: var(--gray-600); max-width: 520px; line-height: 1.7; }
+
+    /* SERVICES */
+    .services { background: var(--white); border-top: 1px solid var(--gray-200); }
+    .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .svc { border: 1px solid var(--gray-200); border-radius: var(--r-md); padding: 30px 26px; transition: box-shadow var(--t), border-color var(--t), transform var(--t); }
+    .svc:hover { transform: translateY(-3px); box-shadow: var(--sh-lg); border-color: var(--orange); }
+    .svc-ico { width: 44px; height: 44px; border-radius: var(--r-sm); background: var(--orange-pale); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+    .svc h3 { font-size: 1rem; font-weight: 700; color: var(--black); margin-bottom: 10px; }
+    .svc p { font-size: .845rem; color: var(--gray-600); line-height: 1.65; margin-bottom: 18px; }
+    .svc-lnk { font-size: .78rem; font-weight: 700; color: var(--orange); display: inline-flex; align-items: center; gap: 4px; letter-spacing: .3px; transition: gap var(--t); }
+    .svc-lnk:hover { gap: 8px; }
+
+    /* CONFERENCE */
+    .conf { background: var(--black); color: var(--white); padding: 72px 24px; }
+    .conf-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+    .conf-info { max-width: 580px; }
+    .conf-info h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.5rem, 2.8vw, 2.1rem); font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
+    .conf-info p { font-size: .95rem; color: rgba(255,255,255,.6); line-height: 1.7; }
+    .conf-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    /* MISSION */
+    .mission { background: var(--orange-pale); border-top: 1px solid #f0ddd0; border-bottom: 1px solid #f0ddd0; }
+    .mission-in { max-width: 820px; margin: 0 auto; text-align: center; }
+    .mission blockquote { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-weight: 600; color: var(--black); line-height: 1.6; position: relative; padding-top: 16px; }
+    .mission blockquote::before { content: '\201C'; font-size: 5rem; color: var(--orange); opacity: .3; position: absolute; top: -22px; left: 50%; transform: translateX(-50%); font-family: Georgia, serif; line-height: 1; }
+    .mission-attrs { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-top: 36px; padding-top: 30px; border-top: 1px solid #e8cbb8; }
+    .m-attr { display: flex; align-items: center; gap: 7px; font-size: .82rem; font-weight: 600; color: var(--gray-800); }
+    .dot { width: 6px; height: 6px; background: var(--orange); border-radius: 50%; display: inline-block; }
+
+    /* FOOTER */
+    footer { background: var(--black); color: rgba(255,255,255,.65); padding: 64px 24px 0; }
+    .ftr-in { max-width: 1200px; margin: 0 auto; }
+    .ftr-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .ftr-brand p { font-size: .855rem; line-height: 1.7; margin-top: 16px; margin-bottom: 20px; color: rgba(255,255,255,.45); }
+    .ftr-social { display: flex; gap: 8px; }
+    .soc-btn { width: 34px; height: 34px; border-radius: var(--r-sm); border: 1px solid rgba(255,255,255,.12); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); transition: all var(--t); }
+    .soc-btn:hover { background: var(--orange); border-color: var(--orange); color: var(--white); }
+    .ftr-col h5 { font-size: .72rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 16px; }
+    .ftr-col ul { list-style: none; }
+    .ftr-col li + li { margin-top: 9px; }
+    .ftr-col a { font-size: .855rem; color: rgba(255,255,255,.55); transition: color var(--t); }
+    .ftr-col a:hover { color: var(--white); }
+    .ftr-btm { padding: 20px 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .ftr-btm p { font-size: .77rem; color: rgba(255,255,255,.3); }
+    .lic { display: flex; align-items: center; gap: 8px; font-size: .75rem; color: rgba(255,255,255,.3); }
+    .lic img { height: 18px; opacity: .55; }
+
+    /* RESPONSIVE */
     @media (max-width: 1024px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .jstrip { grid-template-columns: repeat(2, 1fr); }
+      .jcard { border-bottom: 1px solid var(--gray-200); }
+      .jcard:nth-child(2) { border-right: none; }
+      .jcard:nth-child(3), .jcard:nth-child(4) { border-bottom: none; }
+      .jcard:nth-child(4) { border-right: none; }
+      .svc-grid { grid-template-columns: repeat(2, 1fr); }
+      .ftr-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
     }
-
-    @media (max-width: 768px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-
-      .hero-visual { display: none; }
-
-      .hero-stats { gap: 24px; }
-
+    @media (max-width: 680px) {
       nav { display: none; }
-
-      .journals-grid { grid-template-columns: 1fr; }
-
-      .services-grid { grid-template-columns: 1fr; }
-
-      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-
-      .section { padding: 56px 24px; }
-    }
-
-    @media (max-width: 480px) {
-      .header-inner { padding: 0 16px; }
-      .hero { padding: 64px 16px 56px; }
-    }
-
-    /* ── MOBILE NAV TOGGLE ───────────────────────── */
-    .mobile-menu-btn {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-      padding: 6px;
-      border: none;
-      background: none;
-    }
-
-    .mobile-menu-btn span {
-      width: 20px;
-      height: 2px;
-      background: var(--navy);
-      border-radius: 2px;
-      transition: all var(--transition);
-    }
-
-    @media (max-width: 768px) {
-      .mobile-menu-btn { display: flex; }
+      .jstrip { grid-template-columns: 1fr; }
+      .jcard { border-right: none; border-bottom: 1px solid var(--gray-200); }
+      .jcard:last-child { border-bottom: none; }
+      .svc-grid { grid-template-columns: 1fr; }
+      .ftr-grid { grid-template-columns: 1fr; gap: 28px; }
+      .sec { padding: 56px 24px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── ANNOUNCEMENT BAR ────────────────────────── -->
-  <div class="announcement-bar">
-    <span class="badge">Now Open</span>
-    <p>12th Global Business Research Congress 2026 — Online</p>
-    <a href="#">View Details &rarr;</a>
+  <!-- ANNOUNCEMENT -->
+  <div class="ann">
+    <span class="badge">2026</span>
+    <p>12th Global Business Research Congress &mdash; Online</p>
+    <a href="#">Register &rarr;</a>
   </div>
 
-  <!-- ── HEADER ──────────────────────────────────── -->
+  <!-- HEADER -->
   <header>
-    <div class="header-inner">
-      <a href="/" class="logo">
-        <img src="https://pressacademia.org/wp-content/uploads/2018/05/pa-logo-dark.png" alt="PressAcademia" />
-      </a>
-
+    <div class="hdr">
+      <a href="/" class="logo"><img src="data:image/png;base64,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" alt="PressAcademia" /></a>
       <nav>
         <a href="#">Journals</a>
         <a href="#">Conferences</a>
@@ -831,303 +185,175 @@
         <a href="#">Case Study</a>
         <a href="#">Announcements</a>
       </nav>
-
-      <div class="header-actions">
-        <a href="mailto:[email protected]" class="btn btn-outline">Contact</a>
-        <button class="mobile-menu-btn" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
+      <div class="hdr-actions">
+        <a href="mailto:editor@pressacademia.org" class="btn btn-ol">Contact</a>
       </div>
     </div>
   </header>
 
-  <!-- ── HERO ────────────────────────────────────── -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-content">
-        <div class="hero-eyebrow">Open Access Publishing</div>
-        <h1>
-          Advancing Knowledge<br/>
-          Through <em>Open Science</em>
-        </h1>
-        <p>
-          High quality, blind peer-reviewed journals, proceedings, books and
-          case studies — freely accessible to researchers worldwide.
-        </p>
-        <div class="hero-ctas">
-          <a href="#" class="btn btn-gold">Browse Journals</a>
-          <a href="#" class="btn btn-outline" style="border-color:rgba(255,255,255,.25);color:#fff;">Submit a Paper</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-value">4+</span>
-            <span class="stat-label">Indexed Journals</span>
-          </div>
-          <div class="stat">
-            <span class="stat-value">CC</span>
-            <span class="stat-label">BY 4.0 License</span>
-          </div>
-          <div class="stat">
-            <span class="stat-value">DOI</span>
-            <span class="stat-label">Assigned to All</span>
-          </div>
-          <div class="stat">
-            <span class="stat-value">ISSN</span>
-            <span class="stat-label">Registered</span>
-          </div>
-        </div>
+    <div class="hero-in">
+      <div class="eyebrow">Open Access Publishing</div>
+      <h1>Advancing Knowledge<br/>Through <em>Open Science</em></h1>
+      <p>High quality, blind peer-reviewed journals, proceedings, books and case studies &mdash; freely accessible to researchers worldwide.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn btn-org">Browse Journals</a>
+        <a href="#" class="btn btn-ol-w">Submit a Paper</a>
       </div>
+    </div>
+  </section>
 
-      <div class="hero-visual">
-        <div class="journal-card">
-          <div class="abbr">JBEF</div>
-          <div class="name">Journal of Business, Economics &amp; Finance</div>
-          <div class="open-access">Open Access</div>
+  <!-- JOURNALS (right after hero) -->
+  <section class="jfeat">
+    <div class="jfeat-in">
+      <div class="jlabel">Our Journals</div>
+      <div class="jstrip">
+        <div class="jcard">
+          <div class="jcard-abbr">JBEF</div>
+          <div class="jcard-name">Journal of Business, Economics &amp; Finance</div>
+          <div class="jcard-desc">Empirical and theoretical research across business, economics and finance.</div>
+          <a href="#" class="jcard-link">Latest Issue &rarr;</a>
         </div>
-        <div class="journal-card">
-          <div class="abbr">JEFA</div>
-          <div class="name">Journal of Economics, Finance &amp; Accounting</div>
-          <div class="open-access">Open Access</div>
+        <div class="jcard">
+          <div class="jcard-abbr">JEFA</div>
+          <div class="jcard-name">Journal of Economics, Finance &amp; Accounting</div>
+          <div class="jcard-desc">Rigorous peer-reviewed research in economics, finance and accounting.</div>
+          <a href="#" class="jcard-link">Latest Issue &rarr;</a>
         </div>
-        <div class="journal-card">
-          <div class="abbr">JMML</div>
-          <div class="name">Journal of Management, Marketing &amp; Logistics</div>
-          <div class="open-access">Open Access</div>
+        <div class="jcard">
+          <div class="jcard-abbr">JMML</div>
+          <div class="jcard-name">Journal of Management, Marketing &amp; Logistics</div>
+          <div class="jcard-desc">Interdisciplinary research in management science, marketing and logistics.</div>
+          <a href="#" class="jcard-link">Latest Issue &rarr;</a>
         </div>
-        <div class="journal-card">
-          <div class="abbr">RJBM</div>
-          <div class="name">Research Journal of Business &amp; Management</div>
-          <div class="open-access">Open Access</div>
+        <div class="jcard">
+          <div class="jcard-abbr">RJBM</div>
+          <div class="jcard-name">Research Journal of Business &amp; Management</div>
+          <div class="jcard-desc">Broad-scope research covering all business and management disciplines.</div>
+          <a href="#" class="jcard-link">Latest Issue &rarr;</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── SERVICES ─────────────────────────────────── -->
-  <section class="section services">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-label">What We Offer</span>
-        <h2 class="section-title">A Complete Publishing Ecosystem</h2>
-        <p class="section-subtitle">
-          From peer-reviewed journals to global conferences, we support every
-          stage of academic dissemination.
-        </p>
+  <!-- SERVICES -->
+  <section class="sec services">
+    <div class="sec-in">
+      <div class="sec-hdr">
+        <div class="sec-lbl">What We Offer</div>
+        <h2 class="sec-ttl">A Complete Publishing Ecosystem</h2>
+        <p class="sec-sub">From peer-reviewed journals to global conferences &mdash; we support every stage of academic dissemination.</p>
       </div>
-
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon journals">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a56cc" stroke-width="1.8">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      <div class="svc-grid">
+        <div class="svc">
+          <div class="svc-ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c35a1e" stroke-width="1.8">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
             </svg>
           </div>
           <h3>Journals</h3>
           <p>International indexed and open access journals in economics, finance, marketing, management, logistics and all business-related areas.</p>
-          <a href="#" class="service-link">Browse Journals &rarr;</a>
+          <a href="#" class="svc-lnk">Browse Journals &rarr;</a>
         </div>
-
-        <div class="service-card">
-          <div class="service-icon conf">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ea6d0a" stroke-width="1.8">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        <div class="svc">
+          <div class="svc-ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c35a1e" stroke-width="1.8">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
             </svg>
           </div>
           <h3>Conferences</h3>
           <p>Join our global conferences for networking opportunities. All conferences publish PressAcademia Procedia with DOI and ISSN registration.</p>
-          <a href="#" class="service-link">View Conferences &rarr;</a>
+          <a href="#" class="svc-lnk">View Conferences &rarr;</a>
         </div>
-
-        <div class="service-card">
-          <div class="service-icon ebook">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#137333" stroke-width="1.8">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        <div class="svc">
+          <div class="svc-ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c35a1e" stroke-width="1.8">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
             </svg>
           </div>
           <h3>e-Book</h3>
           <p>High quality open-access digital books with ISBN. Get your thesis, monograph or edited volume published with global reach.</p>
-          <a href="#" class="service-link">Publish a Book &rarr;</a>
+          <a href="#" class="svc-lnk">Publish a Book &rarr;</a>
         </div>
-
-        <div class="service-card">
-          <div class="service-icon case">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c2185b" stroke-width="1.8">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-              <polyline points="10 9 9 9 8 9"/>
+        <div class="svc">
+          <div class="svc-ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c35a1e" stroke-width="1.8">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
             </svg>
           </div>
           <h3>Case Study</h3>
           <p>PressAcademia invites academics, researchers and professionals to submit case studies for open access publication and citation.</p>
-          <a href="#" class="service-link">Submit a Case &rarr;</a>
+          <a href="#" class="svc-lnk">Submit a Case &rarr;</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── JOURNALS ──────────────────────────────────── -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-label">Publications</span>
-        <h2 class="section-title">Our Journals</h2>
-        <p class="section-subtitle">
-          Peer-reviewed, open access, indexed journals covering the full spectrum of business and economics research.
-        </p>
-      </div>
-
-      <div class="journals-grid">
-        <div class="journal-row">
-          <div class="journal-abbr-badge">JBEF</div>
-          <div class="journal-info">
-            <h4>Journal of Business, Economics &amp; Finance</h4>
-            <p>Publishes empirical and theoretical research in all areas of business, economics and finance.</p>
-            <div class="journal-tags">
-              <span class="tag tag-green">Open Access</span>
-              <span class="tag tag-blue">DOI Registered</span>
-              <span class="tag tag-gold">Indexed</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="journal-row">
-          <div class="journal-abbr-badge">JEFA</div>
-          <div class="journal-info">
-            <h4>Journal of Economics, Finance &amp; Accounting</h4>
-            <p>Focused on economics, finance and accounting research with rigorous peer review standards.</p>
-            <div class="journal-tags">
-              <span class="tag tag-green">Open Access</span>
-              <span class="tag tag-blue">DOI Registered</span>
-              <span class="tag tag-gold">Indexed</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="journal-row">
-          <div class="journal-abbr-badge">JMML</div>
-          <div class="journal-info">
-            <h4>Journal of Management, Marketing &amp; Logistics</h4>
-            <p>Interdisciplinary research in management science, marketing strategies and logistics systems.</p>
-            <div class="journal-tags">
-              <span class="tag tag-green">Open Access</span>
-              <span class="tag tag-blue">DOI Registered</span>
-              <span class="tag tag-gold">Indexed</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="journal-row">
-          <div class="journal-abbr-badge">RJBM</div>
-          <div class="journal-info">
-            <h4>Research Journal of Business &amp; Management</h4>
-            <p>Broad-scope journal covering all disciplines within business and management sciences.</p>
-            <div class="journal-tags">
-              <span class="tag tag-green">Open Access</span>
-              <span class="tag tag-blue">DOI Registered</span>
-              <span class="tag tag-gold">Indexed</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CONFERENCE STRIP ───────────────────────────── -->
-  <section class="conference-strip">
-    <div class="section-inner">
+  <!-- CONFERENCE -->
+  <section class="conf">
+    <div class="conf-in">
       <div class="conf-info">
-        <div class="event-label">2026 Congress</div>
+        <div class="sec-lbl" style="color:var(--orange);">2026 Congress</div>
         <h2>12th Global Business Research Congress</h2>
-        <p>Join scholars and researchers from around the world at our annual flagship event. Online format — accessible from anywhere.</p>
+        <p>Join scholars from around the world at our annual flagship event. Online format &mdash; accessible from anywhere.</p>
       </div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;">
-        <a href="#" class="btn btn-gold">Register Now</a>
-        <a href="#" class="btn btn-outline" style="border-color:rgba(255,255,255,.25);color:#fff;">Learn More</a>
+      <div class="conf-ctas">
+        <a href="#" class="btn btn-org">Register Now</a>
+        <a href="#" class="btn btn-ol-w">Learn More</a>
       </div>
     </div>
   </section>
 
-  <!-- ── MISSION QUOTE ──────────────────────────────── -->
-  <section class="section mission">
-    <div class="section-inner">
-      <div class="mission-inner">
-        <span class="section-label">Our Mission</span>
+  <!-- MISSION -->
+  <section class="sec mission">
+    <div class="sec-in">
+      <div class="mission-in">
         <blockquote>
           PressAcademia publishes high quality, high impact, blind peer-reviewed and open access journals, proceedings, books and case studies, and organizes international conferences.
         </blockquote>
-        <div class="mission-attributes">
-          <div class="mission-attr">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Blind Peer Review
-          </div>
-          <div class="mission-attr">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Open Access
-          </div>
-          <div class="mission-attr">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            DOI &amp; ISSN
-          </div>
-          <div class="mission-attr">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            CC BY 4.0 License
-          </div>
-          <div class="mission-attr">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Indexed &amp; Archived
-          </div>
+        <div class="mission-attrs">
+          <div class="m-attr"><span class="dot"></span>Blind Peer Review</div>
+          <div class="m-attr"><span class="dot"></span>Open Access</div>
+          <div class="m-attr"><span class="dot"></span>DOI &amp; ISSN</div>
+          <div class="m-attr"><span class="dot"></span>CC BY 4.0 License</div>
+          <div class="m-attr"><span class="dot"></span>Indexed &amp; Archived</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── FOOTER ─────────────────────────────────────── -->
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="/" class="logo logo-inverted">
-            <img src="https://pressacademia.org/wp-content/uploads/2018/05/pa-logo-dark.png" alt="PressAcademia" />
-          </a>
-          <p>
-            An independent academic publisher committed to open access,
-            scientific integrity, and the global advancement of knowledge.
-          </p>
-          <div class="footer-social">
-            <a href="#" class="social-btn" aria-label="LinkedIn">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
-                <circle cx="4" cy="4" r="2"/>
+    <div class="ftr-in">
+      <div class="ftr-grid">
+        <div class="ftr-brand">
+          <a href="/" class="logo logo-inv"><img src="data:image/png;base64,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" alt="PressAcademia" /></a>
+          <p>An independent academic publisher committed to open access, scientific integrity, and the global advancement of knowledge.</p>
+          <div class="ftr-social">
+            <a href="#" class="soc-btn" aria-label="LinkedIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/>
               </svg>
             </a>
-            <a href="mailto:[email protected]" class="social-btn" aria-label="Email">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
+            <a href="mailto:editor@pressacademia.org" class="soc-btn" aria-label="Email">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
               </svg>
             </a>
           </div>
         </div>
-
-        <div class="footer-col">
+        <div class="ftr-col">
           <h5>Journals</h5>
           <ul>
-            <li><a href="#">JBEF</a></li>
-            <li><a href="#">JEFA</a></li>
-            <li><a href="#">JMML</a></li>
-            <li><a href="#">RJBM</a></li>
+            <li><a href="#">JBEF</a></li><li><a href="#">JEFA</a></li>
+            <li><a href="#">JMML</a></li><li><a href="#">RJBM</a></li>
             <li><a href="#">All Journals</a></li>
           </ul>
         </div>
-
-        <div class="footer-col">
+        <div class="ftr-col">
           <h5>Publish</h5>
           <ul>
             <li><a href="#">Submit an Article</a></li>
@@ -1137,8 +363,7 @@
             <li><a href="#">Case Study</a></li>
           </ul>
         </div>
-
-        <div class="footer-col">
+        <div class="ftr-col">
           <h5>About</h5>
           <ul>
             <li><a href="#">About Us</a></li>
@@ -1148,12 +373,11 @@
           </ul>
         </div>
       </div>
-
-      <div class="footer-bottom">
+      <div class="ftr-btm">
         <p>&copy; 2026 PressAcademia. All rights reserved.</p>
-        <div class="license-badge">
-          <img src="https://pressacademia.org/wp-content/uploads/2021/03/CC.png" alt="Creative Commons" />
-          Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0)
+        <div class="lic">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHIAAAAoCAYAAAAiyK7sAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAScwAAEnMBjCK5BwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAx8SURBVHhe7VsHUFVJFjUrpnXXBOI6g2FcZ0cFRUF0qcVCUTCPaUUxoWIeAUUwDQKKoICIgI4oIBJFQDLoGMacy3KtMpeW2bK0DGUqvfvO/e+9/z++r+D4P99abtUR6O73+va73Te21QT6h4AzDRs1pIYNq/BNQZAZZMcyrFGjxn8XLllEKVmpFJ+SUAUNJKQmUkKagFTl/soGZAbZQYbVIFU07C7NpV0FWRVCVmE25ZTsptw9+VTweyEV7i+mgn2FlCf8vbskl/uVnjNaFGZR3t58KvmjlEoP7aHCfUW8FqwLf5ccLBXWmsfjFJ83MCAzyI5PJv6JF3YcOtJ3Z5QLGCsJbEdmMm1O+I3CosIpYE0ghUaupdj4TZSYnsTCxMfILspRfI8xIad4N+X/XkCx2zbR7F/mkKOTI1nb9KAff/qRbHrZ0ACXAbRgkSdt2R7HmxZrSstJV3yXoQA5QHYVEiSYzizYJezOIkpM205zPedRr969qKVpS6pXrx6ON/Q1Va9enerWrUtNmzUlq+5WNGXGFP44BUYsUAgGm9HJ2Ylq16nN69AFk/omNGTEUNqWHM/PKb3PUKiwICFEqBT8PmGyGzVr3kxxkbpgYmJCAwc705akOD6hGbk7P5qjMpCRm8Eb02/FEmrUuJHMr5OTE4WFhVFOTg4dPHiQsrKyaM2aNeTwbwd5zN+aNiX/4JX8vNK7DYEKCxLMRv22kdp1aCcvRELHjh1p7Nix5OnpSQEBAbR48WKaOHEi9ejRg2rVqqU1tslfm5C330J+3868TMW5DImiAyU0Z8FcmT8XFxc6deoUfYoOHz5MDg4qgUILLfRbJLynWPH9+kaFBAlb6L/anxr/pbG8YAhoxowZdPToUXr79q24xI/p4sWLFBQURGZmZvKzwDg3V8EeFVaqMPP3FtDK4ADZJPj4+Ihcq+jDhw8UEhJCNjY2tHXrVrFVReibNWsWP1e7dm1aExHCTlLabsPazHIJEuoUJwcOjObJ6tOnD50+fVpcUvno/v375OHhIb8DGDt+LL+/MtQs1pq8K4WaN2/OvMyePVvkVE137tyReW3cuDG9evVK7FETNA/6zVub8zoy83cpzqcvfF6QORns2sL7hDqUFuTq6qq4oPJSZGQkO0PS++Z5z2dhGtr7g512nejKPHTr1o3ev38vcqhNQ4cOZfsO7aNEr1+/ZtOC90yfNZ21l9J8+sJnBYmdhb9/6PiD/NFHjx4tsv/naNOmTfI76wkfKWZrrBCL5moxqE9gbanZabLDVlhYKHKmJmxWaJ19+/ZRdHQ028UzZ87Qu3fvxBFqSklJ4fd83/Z7ji8z8gynYT4rSATAU6ZPlT84du3Lly9F1v88wTGS3m0rhDCwV4ZSsbmleRQYEsRzd+jQge1dWQoPD5f5Q2gl/Z6WliaOUNOLFy9YRUPTrI+J5HhUaV594JOCxE8E+YgDwTycgYraxM8RHKR27dQecEhEKH/gsozqA1Cr7h7uPC/sthLB8ZF408SGDRvEEdo0ZMgQ7l8oeORIKijNqw98UpDQ8/MF2yUx7+bmJrL7MX3ulL5584btiBLFx8fLczgPdmFbWZZRfQCC/HnMSJ4XsaESLV26VOZNEzExMeIIbYKzhP5pgp3E+5Xm1Qd0C1JQb3Cjbe1sZeZPnDghsqsinKZVq1aRlZUVmZubU+fOnTl2fPr0qTiC6OzZsxxbtm3bltq0aUP9+/en9PR0sVdF2AQtW7bkOVqZt2KHxxDhCD704GGDeV44X0rk6+srr18TUVFR4ght8vb25v5J7pOoSDBLSvPqAzoFCUcAalVyy+GRaRp4nLBBgwbJC9P0QNu3b09PnjxhNYwSi9IYCFyTIGy0Q32HR0dwAl6J4a8JTY8VJ0+JAgMDtWwjUL9+fYqLixNHaNPkyZN5zJwFcwzqueoUJHKhMVtjOFcKxsqqVU2Pc/78+XTjxg3av38/n0ycutu3b5OdnR3347SVlpbSzZs3eSySAkgOaDoX69evl9+3IuhX1gZKDH9N4EP/snABz4lNqUTPnj2jpKQkmTeguLhYpylBFovXELiCCwlK8+oDOgWJagWqF9IpKpvtgLDQ3qJFC6148uHDh/zz8uXL8sL9/Py4TaLHjx+Lv6kpNTVVHu/p42UQR0G1WWOpRs0a1KBBA3rw4IHIjTYdOHBA5g24dOmS2KNNV69epZo1a/KJRY0QIYjSvPqATkFiN/26yl9mft26dSK7KrK0tOT2rl27ii3atHfvXvnZhIQEsVU3lZSUyOPdZ04ziKOAMAcesmV3K54X9lCJNHkDzp8/L/Zok+To9Lbvw2GU0pz6gk5BYoGr162Wmff39xfZVVGvXr243cLCQmzRJthH6dmIiAixVTehuiCNZ/tioLIQNmxQqCqWhC0s69CByiNImJVaNVXpy9D1aw0WQknQKUgEsxs2R1Gt2qqaHBLDmjRv3jxuh3MieaFIb8HYz507l65fvy4nyGE3YGtASK47OjpScnKylo2E84CxwJJflxhuR+dmcNK+/0AnnhueNcyCJuXn58u8AfDENencuXOyU+gyZJDB03OATkFCv6NgKlU67O3tRbZVdOXKFU4gow/C7NevH4cf0mJv3brFLrr0N4L+gQMHsv3A38OGDdPKa3p5ecljg8OCDbqjsV4Uyn/qquIfGxAOjURI9MfGxjI2b95Mz58/F3uIMjMzqUkTVQ4axXPpSovSPPqETkHCfsAZ6PTPTswk1A6Eo0nIO1pbW8sC4MUIMeWhQ4fEEcQquVkzdfEZzsD06dM5naVJ0ibAxtmWEm9QRwFxKzQQqiDWPdXrGT9+PKvMsuU5eKxFRUW8GaWxdn3sOG+L9xg68Q/oFCQ6kWeV4iwgNDRUXIqaoB5RgEXCGfZFqXqAHb1nzx5e/LVr18RWNeE5qRbY07Ynhx6GLmlJwsQGGjl2lFa5rnXr1lyyw20BhFRmpuqaaj2TeuQ6aTw/m11ceXd3PilIMLdxSzQXTME04kHNrM3XIlTjpQ/jtdi7UmwMACEgEYIUIfyDQUMHcX1R4k0T31l8RyNG/8x3kDB+Z37l3nL4pCABhAGOA/rJC9CVXP5SysjIkN/duk1rVVE2z7BFWSVgE2PtUJfINCEU813uyzcJImMjmU8I0FgukX0kyMT07bwI7EzkO6Eu4pK2UqNG6gtJuvKMFSXU9TRTeIuFD4XTyMIU5q9M4IThJ5wXhCi4+QfBgT9cPkM7xkjjKhuQGWQnCxKOBgSInYgPCkkjpvNd4Sd/cGR7tmzZIorjy+jYsWOczpPe2U849Qg5MB/Pn5XGPFShfMA3g+xYkHA4zFqZsV3AT4t2FhQdF8NXPYoPlHBGX/rwADIhn7pwpYsSExM5JSa9p4tlF2YEIUdyZjJ1tuxMpmamXAmpQvkgyUx0GtVCkoAb1jiROCk4Mf+ZME6rH+HGzp07Fa8+lCWEK87OzlrP29jZ8ulDbhfX8HHhV7O/Cl8ExUaaMHkCFR8sYV2Me5u4Ll+3TGmnU6dOnNHZsWMHVzpg/5BsRtYHJSJcJdQcDwwfNULltgsOA078oqU+WqUuY4MUIpVF2Tu7RgDFRsYCH0/+Dy1QgTD6YRvDybKbKnFeUeByEmwuTrq0OYLD15CJEJMpja8MoHSFVNyFCxd4U+L2HNJwJ0+epGnTpvEYU1NTjqGlGqQRQbGRgd2IZDbUH9Qs7BlO09KVy8juX3YqI6vwnARcJexi1ZXmec3neE0SYskfe9i117SZxoBHjx6xZkG5Trqfg1Sc5LEjPYn8MArs0u0GI4JioxaGjxzBpxJuOAQBuwn3HP+XY1nAcvKYO5PGuY3jKxTDRg4nt6kT+fQhcIbgpefwDDaDu8c0Y1RNXCjPzs6mvn37svCOHz/Oah+F9nv37rHXDRozZozi85UMxcaP0KFjB/IXThEEAcHghHK8tTefg2jcVUE7fkeaD8KGHZQcJvSt2xCmldc0NuC/OCC3jPIaCskQHFJ16Bs1ahQLsaCg4KPnjASKjTphZd2NfJYtpqSMHawqYTtR2UfAjJAFgobgpEA6LTud1ai9g71Ox8FYcPfuXQoODubf69Spw4KT7uAiOQKaOlV939fIoNj4WcAJ6G3fW6VGl/tSQEggrY1cS0Ghq2iJ/1Jyn+lODo4OZP535bylMQJXVpDsh9Nz5MgRvsppa6u6UYj1gqSarBFCsfH/Eii14aonLoXhJh3iZakPNdXly5dT9+7dtZ4xIig2VuHbQ7U7ZRqq8M2h2p3/AdajIQQBCxRNAAAAAElFTkSuQmCC" alt="Creative Commons" />
+          Creative Commons Attribution 4.0 International (CC BY 4.0)
         </div>
       </div>
     </div>
