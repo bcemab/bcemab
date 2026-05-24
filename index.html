@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PressAcademia — Open Access Academic Publishing</title>
+  <meta name="description" content="PressAcademia publishes high quality, blind peer-reviewed and open access journals, proceedings, books and case studies, and organizes international conferences." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #0f1f3d;
+      --navy-mid:  #1a3260;
+      --gold:      #c9972b;
+      --gold-light:#e8b84b;
+      --cream:     #faf8f4;
+      --white:     #ffffff;
+      --gray-100:  #f4f5f7;
+      --gray-200:  #e8eaed;
+      --gray-400:  #9aa3b0;
+      --gray-600:  #5c6470;
+      --gray-800:  #2d3340;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 1px 4px rgba(15,31,61,.06);
+      --shadow-md: 0 4px 20px rgba(15,31,61,.10);
+      --shadow-lg: 0 12px 40px rgba(15,31,61,.14);
+      --transition: .22s cubic-bezier(.4,0,.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--gray-800);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── HEADER ───────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--navy);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-mark svg { display: block; }
+
+    .logo-text {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -.3px;
+    }
+
+    .logo-text span {
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+    }
+
+    nav a {
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: .875rem;
+      font-weight: 500;
+      color: var(--gray-600);
+      transition: color var(--transition), background var(--transition);
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      color: var(--navy);
+      background: var(--gray-100);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      font-size: .875rem;
+      font-weight: 600;
+      transition: all var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--navy-mid);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--gray-200);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--navy);
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(201,151,43,.35);
+    }
+
+    /* ── ANNOUNCEMENT BANNER ─────────────────────── */
+    .announcement-bar {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      color: var(--white);
+      padding: 14px 24px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .announcement-bar .badge {
+      background: var(--gold);
+      color: var(--white);
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .announcement-bar p {
+      font-size: .9rem;
+      font-weight: 500;
+    }
+
+    .announcement-bar a {
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition);
+      flex-shrink: 0;
+    }
+
+    .announcement-bar a:hover { border-color: var(--gold-light); }
+
+    /* ── HERO ─────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #162b52 50%, #1e3a6e 100%);
+      color: var(--white);
+      padding: 100px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,151,43,.15);
+      border: 1px solid rgba(201,151,43,.3);
+      color: var(--gold-light);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--gold-light);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -.5px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold-light);
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.75);
+      max-width: 480px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 56px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -.5px;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: .78rem;
+      color: rgba(255,255,255,.5);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .hero-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .journal-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius-md);
+      padding: 22px 20px;
+      transition: background var(--transition), transform var(--transition);
+      cursor: default;
+    }
+
+    .journal-card:hover {
+      background: rgba(255,255,255,.11);
+      transform: translateY(-2px);
+    }
+
+    .journal-card:nth-child(2) { margin-top: 24px; }
+    .journal-card:nth-child(4) { margin-top: -24px; }
+
+    .journal-card .abbr {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+
+    .journal-card .name {
+      font-size: .85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,.85);
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+
+    .journal-card .open-access {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: .72rem;
+      color: rgba(255,255,255,.45);
+      font-weight: 500;
+    }
+
+    .journal-card .open-access::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: #4ade80;
+      border-radius: 50%;
+    }
+
+    /* ── SECTION COMMON ──────────────────────────── */
+    .section {
+      padding: 80px 24px;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -.3px;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--gray-600);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── SERVICES ─────────────────────────────────── */
+    .services {
+      background: var(--cream);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--navy);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .service-icon.journals  { background: #e8f0fe; }
+    .service-icon.conf      { background: #fce8d5; }
+    .service-icon.ebook     { background: #e6f4ea; }
+    .service-icon.case      { background: #fce8f3; }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: .875rem;
+      color: var(--gray-600);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .service-link {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--navy);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap var(--transition), color var(--transition);
+    }
+
+    .service-link:hover {
+      color: var(--gold);
+      gap: 8px;
+    }
+
+    /* ── JOURNALS ─────────────────────────────────── */
+    .journals-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .journal-row {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
+    }
+
+    .journal-row:hover {
+      box-shadow: var(--shadow-md);
+      border-color: rgba(15,31,61,.2);
+      transform: translateY(-2px);
+    }
+
+    .journal-abbr-badge {
+      width: 56px;
+      height: 56px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .5px;
+      text-align: center;
+      flex-shrink: 0;
+      line-height: 1.2;
+    }
+
+    .journal-info { flex: 1; }
+
+    .journal-info h4 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .journal-info p {
+      font-size: .82rem;
+      color: var(--gray-600);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .journal-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .3px;
+    }
+
+    .tag-blue  { background: #e8f0fe; color: #1a56cc; }
+    .tag-green { background: #e6f4ea; color: #137333; }
+    .tag-gold  { background: #fef3cd; color: #8a6100; }
+
+    /* ── CONFERENCE STRIP ────────────────────────── */
+    .conference-strip {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      padding: 64px 24px;
+      color: var(--white);
+    }
+
+    .conference-strip .section-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .conf-info { max-width: 560px; }
+
+    .conf-info .event-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,151,43,.2);
+      border: 1px solid rgba(201,151,43,.35);
+      color: var(--gold-light);
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .conf-info h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .conf-info p {
+      font-size: .95rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.7;
+    }
+
+    /* ── MISSION ──────────────────────────────────── */
+    .mission {
+      background: var(--gray-100);
+    }
+
+    .mission-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mission blockquote {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.55;
+      position: relative;
+      padding: 0 20px;
+    }
+
+    .mission blockquote::before {
+      content: '"';
+      font-size: 6rem;
+      color: var(--gold);
+      opacity: .25;
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    .mission-attributes {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .mission-attr {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--gray-600);
+    }
+
+    .mission-attr svg { color: var(--navy); }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.7);
+      padding: 64px 24px 0;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .footer-brand .logo-text { color: var(--white); }
+
+    .footer-brand p {
+      font-size: .875rem;
+      line-height: 1.7;
+      margin-top: 14px;
+      margin-bottom: 20px;
+      color: rgba(255,255,255,.55);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255,255,255,.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.6);
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+    }
+
+    .social-btn:hover {
+      background: rgba(255,255,255,.1);
+      color: var(--white);
+      border-color: rgba(255,255,255,.3);
+    }
+
+    .footer-col h5 {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-col li + li { margin-top: 10px; }
+
+    .footer-col a {
+      font-size: .875rem;
+      color: rgba(255,255,255,.65);
+      transition: color var(--transition);
+    }
+
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom p {
+      font-size: .8rem;
+      color: rgba(255,255,255,.35);
+    }
+
+    .license-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .78rem;
+      color: rgba(255,255,255,.4);
+    }
+
+    .license-badge img {
+      opacity: .6;
+      height: 18px;
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .hero-visual { display: none; }
+
+      .hero-stats { gap: 24px; }
+
+      nav { display: none; }
+
+      .journals-grid { grid-template-columns: 1fr; }
+
+      .services-grid { grid-template-columns: 1fr; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+
+      .section { padding: 56px 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .header-inner { padding: 0 16px; }
+      .hero { padding: 64px 16px 56px; }
+    }
+
+    /* ── MOBILE NAV TOGGLE ───────────────────────── */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      padding: 6px;
+      border: none;
+      background: none;
+    }
+
+    .mobile-menu-btn span {
+      width: 20px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── ANNOUNCEMENT BAR ────────────────────────── -->
+  <div class="announcement-bar">
+    <span class="badge">Now Open</span>
+    <p>12th Global Business Research Congress 2026 — Online</p>
+    <a href="#">View Details &rarr;</a>
+  </div>
+
+  <!-- ── HEADER ──────────────────────────────────── -->
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <div class="logo-mark">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M3 4h14v2H3V4zm0 5h10v2H3V9zm0 5h14v2H3v-2z" fill="white"/>
+          </svg>
+        </div>
+        <span class="logo-text">Press<span>Academia</span></span>
+      </a>
+
+      <nav>
+        <a href="#">Journals</a>
+        <a href="#">Conferences</a>
+        <a href="#">Procedia</a>
+        <a href="#">e-Book</a>
+        <a href="#">Case Study</a>
+        <a href="#">Announcements</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="mailto:[email protected]" class="btn btn-outline">Contact</a>
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── HERO ────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Open Access Publishing</div>
+        <h1>
+          Advancing Knowledge<br/>
+          Through <em>Open Science</em>
+        </h1>
+        <p>
+          High quality, blind peer-reviewed journals, proceedings, books and
+          case studies — freely accessible to researchers worldwide.
+        </p>
+        <div class="hero-ctas">
+          <a href="#" class="btn btn-gold">Browse Journals</a>
+          <a href="#" class="btn btn-outline" style="border-color:rgba(255,255,255,.25);color:#fff;">Submit a Paper</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-value">4+</span>
+            <span class="stat-label">Indexed Journals</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">CC</span>
+            <span class="stat-label">BY 4.0 License</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">DOI</span>
+            <span class="stat-label">Assigned to All</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">ISSN</span>
+            <span class="stat-label">Registered</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="journal-card">
+          <div class="abbr">JBEF</div>
+          <div class="name">Journal of Business, Economics &amp; Finance</div>
+          <div class="open-access">Open Access</div>
+        </div>
+        <div class="journal-card">
+          <div class="abbr">JEFA</div>
+          <div class="name">Journal of Economics, Finance &amp; Accounting</div>
+          <div class="open-access">Open Access</div>
+        </div>
+        <div class="journal-card">
+          <div class="abbr">JMML</div>
+          <div class="name">Journal of Management, Marketing &amp; Logistics</div>
+          <div class="open-access">Open Access</div>
+        </div>
+        <div class="journal-card">
+          <div class="abbr">RJBM</div>
+          <div class="name">Research Journal of Business &amp; Management</div>
+          <div class="open-access">Open Access</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ─────────────────────────────────── -->
+  <section class="section services">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">What We Offer</span>
+        <h2 class="section-title">A Complete Publishing Ecosystem</h2>
+        <p class="section-subtitle">
+          From peer-reviewed journals to global conferences, we support every
+          stage of academic dissemination.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon journals">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a56cc" stroke-width="1.8">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+          </div>
+          <h3>Journals</h3>
+          <p>International indexed and open access journals in economics, finance, marketing, management, logistics and all business-related areas.</p>
+          <a href="#" class="service-link">Browse Journals &rarr;</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon conf">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ea6d0a" stroke-width="1.8">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Conferences</h3>
+          <p>Join our global conferences for networking opportunities. All conferences publish PressAcademia Procedia with DOI and ISSN registration.</p>
+          <a href="#" class="service-link">View Conferences &rarr;</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon ebook">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#137333" stroke-width="1.8">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <h3>e-Book</h3>
+          <p>High quality open-access digital books with ISBN. Get your thesis, monograph or edited volume published with global reach.</p>
+          <a href="#" class="service-link">Publish a Book &rarr;</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon case">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c2185b" stroke-width="1.8">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <h3>Case Study</h3>
+          <p>PressAcademia invites academics, researchers and professionals to submit case studies for open access publication and citation.</p>
+          <a href="#" class="service-link">Submit a Case &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── JOURNALS ──────────────────────────────────── -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Publications</span>
+        <h2 class="section-title">Our Journals</h2>
+        <p class="section-subtitle">
+          Peer-reviewed, open access, indexed journals covering the full spectrum of business and economics research.
+        </p>
+      </div>
+
+      <div class="journals-grid">
+        <div class="journal-row">
+          <div class="journal-abbr-badge">JBEF</div>
+          <div class="journal-info">
+            <h4>Journal of Business, Economics &amp; Finance</h4>
+            <p>Publishes empirical and theoretical research in all areas of business, economics and finance.</p>
+            <div class="journal-tags">
+              <span class="tag tag-green">Open Access</span>
+              <span class="tag tag-blue">DOI Registered</span>
+              <span class="tag tag-gold">Indexed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="journal-row">
+          <div class="journal-abbr-badge">JEFA</div>
+          <div class="journal-info">
+            <h4>Journal of Economics, Finance &amp; Accounting</h4>
+            <p>Focused on economics, finance and accounting research with rigorous peer review standards.</p>
+            <div class="journal-tags">
+              <span class="tag tag-green">Open Access</span>
+              <span class="tag tag-blue">DOI Registered</span>
+              <span class="tag tag-gold">Indexed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="journal-row">
+          <div class="journal-abbr-badge">JMML</div>
+          <div class="journal-info">
+            <h4>Journal of Management, Marketing &amp; Logistics</h4>
+            <p>Interdisciplinary research in management science, marketing strategies and logistics systems.</p>
+            <div class="journal-tags">
+              <span class="tag tag-green">Open Access</span>
+              <span class="tag tag-blue">DOI Registered</span>
+              <span class="tag tag-gold">Indexed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="journal-row">
+          <div class="journal-abbr-badge">RJBM</div>
+          <div class="journal-info">
+            <h4>Research Journal of Business &amp; Management</h4>
+            <p>Broad-scope journal covering all disciplines within business and management sciences.</p>
+            <div class="journal-tags">
+              <span class="tag tag-green">Open Access</span>
+              <span class="tag tag-blue">DOI Registered</span>
+              <span class="tag tag-gold">Indexed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONFERENCE STRIP ───────────────────────────── -->
+  <section class="conference-strip">
+    <div class="section-inner">
+      <div class="conf-info">
+        <div class="event-label">2026 Congress</div>
+        <h2>12th Global Business Research Congress</h2>
+        <p>Join scholars and researchers from around the world at our annual flagship event. Online format — accessible from anywhere.</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="#" class="btn btn-gold">Register Now</a>
+        <a href="#" class="btn btn-outline" style="border-color:rgba(255,255,255,.25);color:#fff;">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MISSION QUOTE ──────────────────────────────── -->
+  <section class="section mission">
+    <div class="section-inner">
+      <div class="mission-inner">
+        <span class="section-label">Our Mission</span>
+        <blockquote>
+          PressAcademia publishes high quality, high impact, blind peer-reviewed and open access journals, proceedings, books and case studies, and organizes international conferences.
+        </blockquote>
+        <div class="mission-attributes">
+          <div class="mission-attr">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Blind Peer Review
+          </div>
+          <div class="mission-attr">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Open Access
+          </div>
+          <div class="mission-attr">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            DOI &amp; ISSN
+          </div>
+          <div class="mission-attr">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            CC BY 4.0 License
+          </div>
+          <div class="mission-attr">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Indexed &amp; Archived
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <div class="logo-mark">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M3 4h14v2H3V4zm0 5h10v2H3V9zm0 5h14v2H3v-2z" fill="white"/>
+              </svg>
+            </div>
+            <span class="logo-text">Press<span>Academia</span></span>
+          </a>
+          <p>
+            An independent academic publisher committed to open access,
+            scientific integrity, and the global advancement of knowledge.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="social-btn" aria-label="LinkedIn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="mailto:[email protected]" class="social-btn" aria-label="Email">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Journals</h5>
+          <ul>
+            <li><a href="#">JBEF</a></li>
+            <li><a href="#">JEFA</a></li>
+            <li><a href="#">JMML</a></li>
+            <li><a href="#">RJBM</a></li>
+            <li><a href="#">All Journals</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Publish</h5>
+          <ul>
+            <li><a href="#">Submit an Article</a></li>
+            <li><a href="#">Author Guidelines</a></li>
+            <li><a href="#">Procedia</a></li>
+            <li><a href="#">e-Book</a></li>
+            <li><a href="#">Case Study</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>About</h5>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Conferences</a></li>
+            <li><a href="#">Announcements</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 PressAcademia. All rights reserved.</p>
+        <div class="license-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.5">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0)
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
